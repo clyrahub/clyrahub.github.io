@@ -1,0 +1,194 @@
+:root {
+  --cream: #fffaf6;
+  --blush: #f7e9e4;
+  --rose: #e8c4bb;
+  --gold: #b88a4a;
+  --gold-dark: #946c35;
+  --ink: #3a2f2c;
+  --muted: #8a7a74;
+  --white: #ffffff;
+  --wa: #25d366;
+  --wa-dark: #1ebe5b;
+  --radius: 16px;
+  --shadow: 0 6px 24px rgba(120, 80, 60, 0.10);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Poppins", system-ui, sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+body.lock { overflow: hidden; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+/* Header */
+.topbar {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 20px;
+  background: rgba(255, 250, 246, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--blush);
+}
+.logo {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.9rem; font-weight: 700; letter-spacing: 1px;
+}
+.logo span { color: var(--gold); }
+.topbar-wa {
+  font-size: .85rem; font-weight: 500;
+  padding: 8px 16px; border-radius: 999px;
+  background: var(--ink); color: var(--white);
+  transition: background .2s;
+}
+.topbar-wa:hover { background: var(--gold-dark); }
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 64px 20px 56px;
+  background: linear-gradient(160deg, var(--blush), var(--cream) 70%);
+}
+.eyebrow {
+  text-transform: uppercase; letter-spacing: 2px;
+  font-size: .75rem; color: var(--gold); font-weight: 500;
+}
+.hero h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.3rem, 7vw, 4rem);
+  line-height: 1.1; margin: 14px 0;
+}
+.hero-sub { color: var(--muted); max-width: 440px; margin: 0 auto 26px; font-size: .95rem; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 13px 26px; border-radius: 999px; border: 0;
+  font: 500 .95rem "Poppins", sans-serif; cursor: pointer;
+  transition: transform .15s, background .2s, box-shadow .2s;
+}
+.btn:active { transform: scale(.97); }
+.btn-primary { background: var(--gold); color: var(--white); }
+.btn-primary:hover { background: var(--gold-dark); }
+.btn-wa { background: var(--wa); color: var(--white); width: 100%; }
+.btn-wa:hover { background: var(--wa-dark); }
+.btn-wa.disabled { background: #cfc7c3; pointer-events: none; }
+.btn-ghost { background: transparent; color: var(--muted); width: 100%; margin-top: 8px; font-size: .85rem; }
+.btn-ghost:hover { color: var(--ink); }
+
+/* Shop */
+.container { max-width: 1100px; margin: 0 auto; padding: 36px 16px 60px; }
+.toolbar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
+.toolbar input, .toolbar select {
+  font: 400 .92rem "Poppins", sans-serif; color: var(--ink);
+  padding: 12px 16px; border-radius: 12px;
+  border: 1px solid var(--rose); background: var(--white); outline: none;
+}
+.toolbar input { flex: 1 1 220px; }
+.toolbar input:focus, .toolbar select:focus { border-color: var(--gold); }
+
+.chips { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 6px; scrollbar-width: none; }
+.chips::-webkit-scrollbar { display: none; }
+.chip {
+  flex: 0 0 auto; padding: 8px 18px; border-radius: 999px;
+  border: 1px solid var(--rose); background: var(--white); color: var(--ink);
+  font: 400 .85rem "Poppins", sans-serif; cursor: pointer; transition: all .2s;
+}
+.chip:hover { border-color: var(--gold); }
+.chip.active { background: var(--ink); border-color: var(--ink); color: var(--white); }
+.count { color: var(--muted); font-size: .82rem; margin: 10px 2px 14px; }
+
+.grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+@media (min-width: 700px) { .grid { grid-template-columns: repeat(3, 1fr); gap: 22px; } }
+@media (min-width: 980px) { .grid { grid-template-columns: repeat(4, 1fr); } }
+
+.card {
+  background: var(--white); border-radius: var(--radius);
+  overflow: hidden; box-shadow: var(--shadow);
+  display: flex; flex-direction: column; cursor: pointer;
+  transition: transform .25s, box-shadow .25s;
+}
+.card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(120, 80, 60, .16); }
+.card-img { position: relative; aspect-ratio: 1; background: var(--blush); overflow: hidden; }
+.card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+.card:hover .card-img img { transform: scale(1.05); }
+.badge {
+  position: absolute; top: 10px; left: 10px;
+  padding: 4px 10px; border-radius: 999px;
+  font-size: .7rem; font-weight: 600; letter-spacing: .5px;
+  background: var(--gold); color: var(--white);
+}
+.badge.sold { background: var(--ink); left: auto; right: 10px; }
+.card.is-sold .card-img img, .card.is-sold .ph { opacity: .55; }
+.card-body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.card-cat { font-size: .7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+.card-name { font-size: .95rem; font-weight: 500; line-height: 1.3; }
+.card-price { font-family: "Cormorant Garamond", serif; font-size: 1.35rem; font-weight: 700; color: var(--gold-dark); margin-top: auto; }
+.card-btn {
+  margin-top: 8px; padding: 10px; border-radius: 10px; border: 0;
+  background: var(--wa); color: var(--white);
+  font: 500 .82rem "Poppins", sans-serif; cursor: pointer; text-align: center;
+  transition: background .2s;
+}
+.card-btn:hover { background: var(--wa-dark); }
+.card-btn.disabled { background: #d9d2ce; pointer-events: none; }
+
+/* Placeholder when no photo */
+.ph {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: "Cormorant Garamond", serif; font-size: 3.2rem; font-weight: 700;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--rose), var(--gold));
+}
+.empty { text-align: center; color: var(--muted); padding: 50px 0; }
+
+/* Footer */
+.footer { text-align: center; padding: 40px 20px 30px; background: var(--blush); }
+.footer p { color: var(--muted); font-size: .9rem; margin: 6px 0 14px; }
+.footer-links { display: flex; gap: 18px; justify-content: center; margin-bottom: 16px; font-weight: 500; font-size: .9rem; }
+.footer-links a:hover { color: var(--gold-dark); }
+.footer small { color: var(--muted); font-size: .75rem; }
+
+/* Modal */
+.modal { position: fixed; inset: 0; z-index: 50; display: flex; align-items: flex-end; justify-content: center; }
+.modal[hidden] { display: none; }
+.modal-backdrop { position: absolute; inset: 0; background: rgba(40, 28, 24, .55); animation: fade .2s; }
+.modal-card {
+  position: relative; background: var(--white);
+  width: 100%; max-width: 860px; max-height: 92vh; overflow-y: auto;
+  border-radius: 24px 24px 0 0; animation: slide .3s;
+  display: grid; grid-template-columns: 1fr;
+}
+.modal-close {
+  position: absolute; top: 10px; right: 12px; z-index: 2;
+  width: 38px; height: 38px; border-radius: 50%; border: 0;
+  background: rgba(255,255,255,.9); font-size: 1.6rem; line-height: 1;
+  cursor: pointer; box-shadow: var(--shadow);
+}
+.modal-main { aspect-ratio: 1; background: var(--blush); overflow: hidden; }
+.modal-main img { width: 100%; height: 100%; object-fit: cover; }
+.thumbs { display: flex; gap: 8px; padding: 10px 14px 0; }
+.thumbs img, .thumbs .ph {
+  width: 56px; height: 56px; object-fit: cover; border-radius: 10px;
+  cursor: pointer; border: 2px solid transparent; font-size: 1.2rem;
+}
+.thumbs .active { border-color: var(--gold); }
+.modal-info { padding: 18px 20px 26px; }
+.tag { font-size: .72rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); font-weight: 600; }
+.modal-info h2 { font-family: "Cormorant Garamond", serif; font-size: 1.9rem; line-height: 1.15; margin: 4px 0 6px; }
+.price { font-family: "Cormorant Garamond", serif; font-size: 1.8rem; font-weight: 700; color: var(--gold-dark); margin-bottom: 8px; }
+.desc { color: var(--muted); font-size: .92rem; margin-bottom: 20px; }
+
+@media (min-width: 760px) {
+  .modal { align-items: center; padding: 20px; }
+  .modal-card { grid-template-columns: 1fr 1fr; border-radius: 24px; }
+  .modal-info { padding: 36px 30px; align-self: center; }
+}
+@keyframes fade { from { opacity: 0; } }
+@keyframes slide { from { transform: translateY(40px); opacity: 0; } }
