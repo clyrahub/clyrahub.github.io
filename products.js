@@ -6,10 +6,10 @@
 const CLYRA_CONFIG = {
   // Your WhatsApp number: country code + number, NO "+", spaces or dashes.
   // Example for India: 919876543210
-  whatsappNumber: "919999999999",
+  whatsappNumber: "919074847819",
 
   // Optional: put your Instagram link, or leave "" to hide it
-  instagram: "https://instagram.com/clyra",
+  instagram: "https://instagram.com",
 
   currency: "₹",
 
