@@ -1,15 +1,12 @@
 /* =====================================================
    CLYRA – STORE SETTINGS & PRODUCTS
-   This is the ONLY file you need to edit to manage the shop.
    ===================================================== */
 
 const CLYRA_CONFIG = {
-  // Your WhatsApp number: country code + number, NO "+", spaces or dashes.
-  // Example for India: 919876543210
+   
   whatsappNumber: "919074847819",
 
-  // Optional: put your Instagram link, or leave "" to hide it
-  instagram: "https://instagram.com",
+  instagram: "",
 
   currency: "₹",
 
@@ -20,15 +17,6 @@ const CLYRA_CONFIG = {
     "Link: {link}\n\nIs it available?",
 };
 
-/* -----------------------------------------------------
-   HOW TO ADD A PRODUCT
-   1. Put the photo(s) in the "images" folder
-   2. Copy one block below, paste it at the end of the list, and change the details
-   3. "id" must be unique, lowercase, no spaces (use dashes)
-   - soldOut: true  -> shows a "Sold out" badge, order button disabled
-   - isNew: true    -> shows a "New" badge
-   HOW TO REMOVE: delete the whole { ... }, block.
-   ----------------------------------------------------- */
 
 const PRODUCTS = [
   {
@@ -37,7 +25,7 @@ const PRODUCTS = [
     price: 249,
     category: "Earrings",
     description: "Lightweight pearl drops with a soft rose finish. Perfect for daily wear and parties.",
-    images: ["images/rose-pearl-earrings.jpg"],
+    images: ["images/Drop earrings.jpg"],
     isNew: true,
     soldOut: false,
   },
