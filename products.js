@@ -4,7 +4,7 @@
 
 const CLYRA_CONFIG = {
    
-  whatsappNumber: "919074847819",
+  workerUrl: "https://clyra-wa.rinilregi.workers.dev",
 
   instagram: "",
 
