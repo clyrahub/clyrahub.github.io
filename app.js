@@ -25,12 +25,13 @@
       .replace("{price}", money(p.price))
       .replace("{category}", p.category)
       .replace("{link}", itemLink(p));
-    return "https://wa.me/" + cfg.whatsappNumber + "?text=" + encodeURIComponent(msg);
+    return cfg.workerUrl + "/?text=" + encodeURIComponent(msg);
   }
 
   function generalWaLink() {
-    return "https://wa.me/" + cfg.whatsappNumber + "?text=" + encodeURIComponent("Hi Clyra! 👋 I have a question.");
-  }
+  return cfg.workerUrl + "/?text=" +
+    encodeURIComponent("Hi Clyra! 👋 I have a question.");
+}
 
   // Image with a pretty fallback if the photo is missing
   function imgHTML(src, p, cls) {
